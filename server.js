@@ -16,6 +16,8 @@ var flash = require('connect-flash'); // middleware to flash messages
 var app = express();
 
 
+require('./models/User.js');
+
 //requiring passport.js file 
 require('./config/passport')(passport);
 
@@ -25,7 +27,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //mongoose connection
-mongoose.connect('mongodb://localhost:1234/tourism'); //mongodb server port 1234 | set it using>> mongodb --port 1234
+mongoose.connect('mongodb://localhost/tourism'); //mongodb server port 1234 | set it using>> mongodb --port 1234
 mongoose.connection.on('error',function(){
 	console.error('MongoDB server not connected');
 });

@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local').Strategy; //requiring strategy for package 'passport-local'
-var User = require('../models/User'); //require user model || user model contains user schema
+var mongoose = require('mongoose');
+var User = mongoose.model('User'); //require user model || user model contains user schema
 
 
 module.exports = function(passport){
@@ -9,7 +10,7 @@ module.exports = function(passport){
 	});
 	//deserializing user
 	passport.deserializeUser(function(user,done){
-		 User.findById(id, function(err, user) {
+		 User.findById(user, function(err, user) {
             done(err, user);
         });
 		});
@@ -25,14 +26,15 @@ module.exports = function(passport){
 
 	function(req,email,password,done){
 		process.nextTick(function(){ //functionto wait for the response
-
-			User.findOne({'email': email}), 
+			console.log(email, password)
+			User.findOne({'email': email}, 
 			function(err,user){
+				console.log(user,'error',err);
 				if(err)
 					return done(err);
 
 				if(user){
-					return done(null, false , req.flash('signupMessage','email already in use'));
+					return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
 				}else{
 					var newUser = new User(); 
 
@@ -41,8 +43,9 @@ module.exports = function(passport){
 
 					//save the new user
 					newUser.save(); 
+					done(null, newUser);
 				}
-			}
+			});
 		})
 	}
 
@@ -57,7 +60,7 @@ module.exports = function(passport){
 		passReqToCallback : true
 	},
 	function(req,email,password,done){
-		User.findOne({'email': email}),
+		User.findOne({'email': email},
 		function(err,user){
 			if(err)
 				return done(err);
@@ -67,7 +70,7 @@ module.exports = function(passport){
 							return done(null,false,req.flash('loginMessage','password \'t match'));}
 							return done(null,user);
 				
-		}
+		});
 	}
 
 	));
