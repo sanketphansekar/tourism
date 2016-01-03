@@ -1,0 +1,16 @@
+<div class="mui-container">
+	<!-- <p>This is activity</p> -->
+	<div ng-controller="activityController"> 
+	<!-- activity controller -->
+  <ul>
+    <li ng-repeat="activity in activities">
+      <!-- <input type="checkbox" ng-model="activity.interested" ng-click=""> -->
+      <input type="checkbox"  ng-click="interestedActivity(activity._id)">
+      {{ activity.activity }}
+    </li>
+  </ul>
+  </div>
+
+<!-- next button trigger next state -->
+	<a ui-sref="form.activity_result">next</a> 
+</div> 

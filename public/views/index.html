@@ -1,0 +1,94 @@
+
+<html>
+<head>
+  <title>Home</title>
+  <!-- mui require files -->
+      <link href="http://cdn.muicss.com/mui-0.2.9/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.muicss.com/mui-0.2.9/js/mui.min.js"></script>
+
+    <!-- css|JS files -->
+    <link href="static/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/customstyle.css" rel="stylesheet" type="text/css" />
+     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="static/script.js"></script>
+  
+
+    <!-- Angular Js require files -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+
+    <!-- angular controllers -->
+    <script src="./app.js"></script>
+    <script src="./controllers/form.js"></script>
+    <script src="./controllers/activity.js"></script>
+</head>
+<body>
+          <!-- sidebar -->
+     <div id="sidedrawer" class="mui--no-user-select">
+      <div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title">Brand.io</div>
+      <div class="mui-divider"></div>
+      <ul>
+        <li>
+          <strong>Category 1</strong>
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong>Category 2</strong>
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong>Category 3</strong>
+          <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- header|topbar -->
+    <header id="header">
+      <div class="mui-appbar mui--appbar-line-height header_color" style=" background-color: mui-color('teal', 'A700')" >
+        <div class="mui-container-fluid">
+          <a class="sidedrawer-toggle mui--visible-xs-inline-block js-show-sidedrawer">☰</a>
+          <a class="sidedrawer-toggle mui--hidden-xs js-hide-sidedrawer">☰</a>
+          <span class="mui--text-title mui--visible-xs-inline-block">Brand.io</span>
+        </div>
+      </div>
+    </header>
+    <div id="content-wrapper">
+      <div class="mui--appbar-height"></div>
+      <div class="mui-container-fluid">
+        <br>
+        <div class="mui-container">
+          <center>
+         <!-- declaring angular app -->
+    <div ng-app="formApp" >
+      <!-- this inserts views here -->
+      
+      <div ui-view></div>
+      {{formData}}
+
+    </div>
+    </center>
+    </div>
+
+       
+      </div>
+    </div>
+
+   
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div ng-app>
+<!-- Tabs UI -->
+<ul class="mui-tabs__bar">
+  <li class="mui--is-active"><a data-mui-toggle="tab" data-mui-controls="pane-api-1">Tab-1</a></li>
+  <li><a data-mui-toggle="tab" data-mui-controls="pane-api-2">Tab-2</a></li>
+  <li><a data-mui-toggle="tab" data-mui-controls="pane-api-3">Tab-3</a></li>
+</ul>
+<!-- inserts multiple steps here -->
+ <form  id="login-form" ng-submit="processForm()">
+    <div id="form-views" ui-view></div>
+
+ </form>
+ 
+ <div ng-controller="formController">
+ 	{{formData}}
+ </div>
+
+
+</div>
